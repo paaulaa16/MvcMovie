@@ -66,15 +66,14 @@ namespace MvcMovie.Controllers
             {
                 if (primeraPosicion == 0)
                 {
+                    if (id == null)
+                    {
+                        id = item.Id;
+                    }
                     @ViewData["PrimeraId"] = item.Id;
                     primeraPosicion++;
                 }
                 @ViewData["UltimoId"] = item.Id;
-            }
-
-            if (id == null)
-            {
-                return NotFound();
             }
 
             var movie = await _context.Movie
